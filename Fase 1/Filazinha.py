@@ -24,23 +24,23 @@ class Loterica:
         if self.fila:  # verifica se há pessoas na fila
             print("Fila atual:")
             for idx, pessoa in enumerate(self.fila, start=1):
-                print(f"{idx}. {pessoa}")  # imprime com índice para clareza
+                print(f"{idx}. {pessoa}")  # printando com indice p n confundir
         else:
             print("Fila está vazia.")
-        print("-" * 20)  # separador visual para organização
+        print("-" * 20)  # base
 
     def adicionar_pessoas(self):
-        # adiciona um conjunto de pessoas na fila
+        # adicionando pessoas na fila
         self.entrar_na_fila("Manoel")
         self.entrar_na_fila("Joseval")
         self.entrar_na_fila("Enzo")
 
     def remover_pessoas(self):
-        # remove pessoas da fila
+        # remove as pessoas da fila
         self.sair_da_fila()
         self.sair_da_fila()
 
-# exemplo de uso
+# uso
 fila_loterica = Loterica()
-fila_loterica.adicionar_pessoas()  # adiciona pessoas à fila
-fila_loterica.remover_pessoas()    # remove pessoas da fila
+fila_loterica.adicionar_pessoas()
+fila_loterica.remover_pessoas()
