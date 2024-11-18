@@ -29,3 +29,4 @@ linked_list = ListaEncadeada()
 linked_list.add("A")  # adiciona o elemento 'A'
 linked_list.add("B")  # adiciona o elemento 'B'
 linked_list.add("C")  # adiciona o elemento 'C'
+print("\n")
