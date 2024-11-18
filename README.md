@@ -1,1 +1,1 @@
-# Sakaue
+# Este repositório é destinado para minhas atividades para validação com a matéria de Estrutura de Dados
