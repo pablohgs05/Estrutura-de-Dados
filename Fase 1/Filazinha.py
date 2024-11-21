@@ -32,7 +32,7 @@ class Loterica:
             self.mostrar_fila()
             return pessoa
         else:
-            print("\nA fila está vazia.")
+            print("\nNão é possível remover alguém da fila, pois ela está vazia.")
             return None
 
     def mostrar_fila(self):
