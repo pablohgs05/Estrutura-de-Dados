@@ -1,7 +1,7 @@
-class Nodo:
+class Node:
     def __init__(self, pessoa=None):
         self.pessoa = pessoa  # armazena a pessoa
-        self.proximo = None  # ponteiro para o próximo nodo
+        self.proximo = None  # ponteiro para o próximo no
 
 class Loterica:
     def __init__(self):
@@ -10,13 +10,13 @@ class Loterica:
         self.tamanho = 0  # tamanho da fila
 
     def entrar_na_fila(self, pessoa):
-        novo_nodo = Nodo(pessoa)  # cria um novo nó para a pessoa
+        novo_no = Node(pessoa)  # cria um novo nó para a pessoa
         if self.tamanho == 0:
-            self.frente = novo_nodo  # se a fila está vazia, frente e traseira apontam para o novo nó
-            self.traseira = novo_nodo
+            self.frente = novo_no  # se a fila está vazia, frente e traseira apontam para o novo nó
+            self.traseira = novo_no
         else:
-            self.traseira.proximo = novo_nodo  # conecta o novo nó ao final da fila
-            self.traseira = novo_nodo  # atualiza a traseira para o novo nó
+            self.traseira.proximo = novo_no  # conecta o novo nó ao final da fila
+            self.traseira = novo_no  # atualiza a traseira para o novo nó
         self.tamanho += 1
         print(f"\n{pessoa} entrou na fila.")
         self.mostrar_fila()
