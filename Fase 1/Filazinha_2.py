@@ -4,49 +4,49 @@ class Node:
         self.next = None
 
 
-def enqueue(queue, name):
+def adicionar(fila, name):
     new_node = Node(name)
-    if queue is None:
+    if fila is None:
         return new_node  # se a fila ta vazia, o novo nó é o primeiro
     else:
-        current = queue
+        current = fila
         while current.next is not None:  # percorre até o último nó
             current = current.next
         current.next = new_node  # add o novo nó no final
-    return queue
+    return fila
 
 
-def dequeue(queue):
-    if queue is None:
+def remover(fila):
+    if fila is None:
         print("A fila está vazia! Não há mais ninguém para atender.")
         return None
-    print(f"Atendendo: {queue.name}")
-    return queue.next  # retorna o próximo nó como o novo início da fila
+    print(f"Atendendo: {fila.name}")
+    return fila.next  # retorna o próximo nó como o novo início da fila
 
 
-def display(queue):
-    if queue is None:
+def mostrar(fila):
+    if fila is None:
         print("A fila está vazia!")
     else:
         print("Fila da lotérica:")
-        current = queue
+        current = fila
         while current is not None:
             print(f"- {current.name}")
             current = current.next
         print()
 
 
-queue = None  # fila inicial vazia
+fila = None  # fila inicial vazia
 
 # adicionando os veios e o Enzo
-queue = enqueue(queue, "Manoel")
-queue = enqueue(queue, "Joseval")
-queue = enqueue(queue, "Enzo")
-display(queue)
+fila = adicionar(fila, "Manoel")
+fila = adicionar(fila, "Joseval")
+fila = adicionar(fila, "Enzo")
+mostrar(fila)
 
 # removendo mais pessoas doq tem
-queue = dequeue(queue) 
-queue = dequeue(queue)  
-queue = dequeue(queue)  
-queue = dequeue(queue)  
-display(queue)
+fila = remover(fila) 
+fila = remover(fila)  
+fila = remover(fila)  
+fila = remover(fila)  
+mostrar(fila)
