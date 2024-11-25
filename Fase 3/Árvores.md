@@ -1,4 +1,4 @@
-## O que é uma Árvore?
+# O que é uma Árvore?
 
 Uma **árvore** é uma estrutura de dados hierárquica, composta por nós (ou vértices). Cada nó pode ter um ou mais filhos, mas apenas um pai (exceto o nó raiz, que não tem pai).
 
