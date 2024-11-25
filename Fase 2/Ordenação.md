@@ -74,7 +74,7 @@ Lista inicial: `[5, 2, 8, 1]`
 
 - Escolhe o pivô (por exemplo, 5).
 - Organiza: `[2, 1]` (menores que 5) e `[8]` (maior que 5).
-- Repeats the process for `[2, 1]` and `[8]`.
+- Repete o processo pra `[2, 1]` e `[8]`.
 - Resultado final: `[1, 2, 5, 8]`
 
 ### Resumo das características dos algoritmos:
