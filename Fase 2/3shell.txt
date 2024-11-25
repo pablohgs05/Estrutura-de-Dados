@@ -1,0 +1,7 @@
+Versão otimizada do Insertion Sort usando "saltos" entre elementos:
+- O Shell Sort é uma variação do Insertion Sort. No Insertion Sort normal, você compara e desloca elementos **adjacentes**.
+- No Shell Sort, em vez de comparar elementos vizinhos, ele compara elementos separados por "saltos" (gaps).
+- Exemplo com uma lista `[8, 3, 7, 1, 9]` e gap = 2:
+  - Compara `8` e `7`, depois `3` e `1`, ignorando o meio.
+  - Após ajustar os pares distantes, reduz o gap (ex: para 1) até que a lista esteja ordenada.
+- Isso ajuda a organizar os dados parcialmente antes de ordená-los completamente.

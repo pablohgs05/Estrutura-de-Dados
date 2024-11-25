@@ -1,0 +1,18 @@
+- É uma estrutura de dados hierárquica composta por nós. O nó no topo da árvore é chamado de raiz, e cada nó pode ter filhos. Nós sem filhos são chamados de folhas;
+- A binária é um tipo específico de árvore onde cada nó pode ter no máximo dois filhos: esquerda e direita;
+
+
+Operações Básicas:
+Inserir: Adiciona um valor na posição correta, seguindo as regras da árvore.
+
+Percorrer: Visita os nós em uma determinada ordem:
+Pré-ordem: Raiz → Esquerda → Direita
+
+Em ordem: Esquerda → Raiz → Direita (usado para imprimir em ordem crescente)
+Pós-ordem: Esquerda → Direita → Raiz
+
+Remover: Remove um nó específico, mantendo a propriedade da árvore.
+
+
+Propriedade de Árvores de Busca Binária (BST):
+Para cada nó, todos os valores menores ficam à esquerda e todos os valores maiores ficam à direita.

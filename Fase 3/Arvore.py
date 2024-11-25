@@ -7,7 +7,7 @@ class No:
 
 
 class ArvoreBinariaBusca:
-    # representa uma árvore binária de busca
+    # representa uma árvore de busca
     def __init__(self):
         self.raiz = None  # inicializa a árvore sem nenhum nó
 
@@ -85,16 +85,16 @@ arvore.inserir(60)
 arvore.inserir(80)
 
 # percorrendo em ordem
-print("árvore em ordem:")
+print("\nárvore em ordem:")
 arvore.em_ordem()
 print()
 
 # removendo
-print("removendo o valor 50:")
+print("\nremovendo o valor 50:")
 arvore.remover(50)
-arvore.remover(60)
 
 # percorrendo em ordem novamente
-print("árvore após a remoção:")
+print("\nárvore após a remoção:")
 arvore.em_ordem()
 print()
+print("\n")

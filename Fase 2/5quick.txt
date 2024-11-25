@@ -1,0 +1,10 @@
+Escolhe um "pivô", separa em partes menores/maiores, e ordena:
+- O pivô é um valor usado para dividir a lista em duas partes:
+  - Elementos menores ou iguais ao pivô.
+  - Elementos maiores que o pivô.
+- A ideia é que o pivô fique em sua posição final ordenada após cada divisão.
+- Exemplo com lista `[8, 3, 7, 1, 9]` e pivô `8`:
+  - Menores: `[3, 7, 1]`.
+  - Maiores: `[9]`.
+  - Resultado parcial: `[3, 7, 1] + [8] + [9]`.
+- Repete isso recursivamente nas sublistas menores e maiores até ordenar tudo.

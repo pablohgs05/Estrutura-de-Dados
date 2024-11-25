@@ -1,0 +1,1 @@
+Divide a lista em partes menores, ordena e combina.
