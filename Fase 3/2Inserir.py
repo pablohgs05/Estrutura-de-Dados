@@ -12,16 +12,16 @@ class ArvoreBinaria:
         if self.raiz is None:  # se a árvore está vazia
             self.raiz = No(valor)  # o primeiro valor vira a raiz
         else:
-            self._inserir_recursivo(self.raiz, valor)  # chama a função auxiliar
+            self.inserir_recursivo(self.raiz, valor)  # chama a função auxiliar
 
-    def _inserir_recursivo(self, atual, valor):
+    def inserir_recursivo(self, atual, valor):
         if valor < atual.valor:  # vai para a esquerda se for menor
             if atual.esquerda is None:  # encontrou espaço
                 atual.esquerda = No(valor)
             else:
-                self._inserir_recursivo(atual.esquerda, valor)  # continua descendo
+                self.inserir_recursivo(atual.esquerda, valor)  # continua descendo
         elif valor > atual.valor:  # vai para a direita se for maior
             if atual.direita is None:  # encontrou espaço
                 atual.direita = No(valor)
             else:
-                self._inserir_recursivo(atual.direita, valor)  # continua descendo
+                self.inserir_recursivo(atual.direita, valor)  # continua descendo
