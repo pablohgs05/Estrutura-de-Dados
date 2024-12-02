@@ -1,9 +1,6 @@
 ### O que é recursão?
 - **Recursão** é uma técnica onde uma função chama a **si mesma** para resolver problemas menores, até chegar em um caso "simples" (base) que pode ser resolvido diretamente.
-- Exemplo clássico: calcular fatorial de um número:
-  - \( fatorial(5) = 5 \times fatorial(4) \)
-  - \( fatorial(4) = 4 \times fatorial(3) \)
-  - E assim vai... até chegar em \( fatorial(1) = 1 \).
+- Exemplo: calcular fatorial.
 
 ---
 
