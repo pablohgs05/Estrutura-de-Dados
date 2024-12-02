@@ -1,0 +1,11 @@
+- A complexidade para suas operações principais depende da altura da árvore;
+- Melhor caso: árvore balanceada, estando com sua altura ideal;
+- Pior caso: árvore desbalanceada, estando com sua altura ruim;
+
+Inserir, Buscar e Remover:
+Melhor caso (árvore balanceada): O(logn)
+Pior caso (árvore desbalanceada): O(n)
+
+Exemplo: uma árvore com 7 nós
+Altura balanceada: 3 níveis: log2(7) ≈ 3
+Altura desbalanceada: até 7 níveis

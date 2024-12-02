@@ -55,19 +55,19 @@ class ArvoreBinariaBusca:
         if self.raiz is None:
             self.raiz = No(valor)  # se a árvore estiver vazia, insere o valor como raiz
         else:
-            self._inserir_recursivo(self.raiz, valor)
+            self.inserir_recursivo(self.raiz, valor)
 
-    def _inserir_recursivo(self, atual, valor):
+    def inserir_recursivo(self, atual, valor):
         if valor < atual.valor:  # se o valor for menor, vai para a esquerda
             if atual.esquerda is None:
                 atual.esquerda = No(valor)
             else:
-                self._inserir_recursivo(atual.esquerda, valor)
+                self.inserir_recursivo(atual.esquerda, valor)
         elif valor > atual.valor:  # se o valor for maior, vai para a direita
             if atual.direita is None:
                 atual.direita = No(valor)
             else:
-                self._inserir_recursivo(atual.direita, valor)
+                self.inserir_recursivo(atual.direita, valor)
 ```
 
 ### 2. Percurso
@@ -81,13 +81,13 @@ Existem três tipos principais de **percurso** em uma árvore binária:
 
 ```python
     def em_ordem(self):
-        self._em_ordem_recursivo(self.raiz)
+        self.em_ordem_recursivo(self.raiz)
 
-    def _em_ordem_recursivo(self, atual):
+    def em_ordem_recursivo(self, atual):
         if atual is not None:
-            self._em_ordem_recursivo(atual.esquerda)  # percorre a subárvore à esquerda
+            self.em_ordem_recursivo(atual.esquerda)  # percorre a subárvore à esquerda
             print(atual.valor, end=" ")  # imprime o valor do nó atual
-            self._em_ordem_recursivo(atual.direita)  # percorre a subárvore à direita
+            self.em_ordem_recursivo(atual.direita)  # percorre a subárvore à direita
 ```
 
 ### 3. Remoção
@@ -101,27 +101,27 @@ A **remoção** de um nó em uma ABB é mais complexa e depende de três casos:
 
 ```python
     def remover(self, valor):
-        self.raiz = self._remover_recursivo(self.raiz, valor)
+        self.raiz = self.remover_recursivo(self.raiz, valor)
 
-    def _remover_recursivo(self, atual, valor):
+    def remover_recursivo(self, atual, valor):
         if atual is None:
             return None
         if valor < atual.valor:  # busca na subárvore esquerda
-            atual.esquerda = self._remover_recursivo(atual.esquerda, valor)
+            atual.esquerda = self.remover_recursivo(atual.esquerda, valor)
         elif valor > atual.valor:  # busca na subárvore direita
-            atual.direita = self._remover_recursivo(atual.direita, valor)
+            atual.direita = self.remover_recursivo(atual.direita, valor)
         else:
             if atual.esquerda is None:  # se o nó não tem filho à esquerda
                 return atual.direita
             if atual.direita is None:  # se o nó não tem filho à direita
                 return atual.esquerda
             # caso o nó tenha dois filhos
-            sucessor = self._encontrar_min(atual.direita)
+            sucessor = self.encontrar_min(atual.direita)
             atual.valor = sucessor.valor  # substitui pelo valor do sucessor
-            atual.direita = self._remover_recursivo(atual.direita, sucessor.valor)
+            atual.direita = self.remover_recursivo(atual.direita, sucessor.valor)
         return atual
 
-    def _encontrar_min(self, atual):
+    def encontrar_min(self, atual):
         while atual.esquerda is not None:
             atual = atual.esquerda
         return atual
