@@ -29,25 +29,25 @@ class ArvoreBinaria:
 
     # método para percorrer a árvore em ordem (menor para maior)
     def percorrer_em_ordem(self):
-        self._percorrer_em_ordem_recursivo(self.raiz)
+        self.percorrer_recursivo(self.raiz)
 
-    def _percorrer_em_ordem_recursivo(self, atual):
+    def percorrer_recursivo(self, atual):
         if atual is not None:  # verifica se o nó existe
-            self._percorrer_em_ordem_recursivo(atual.esquerda)  # visita esquerda
+            self.percorrer_recursivo(atual.esquerda)  # visita esquerda
             print(atual.valor, end=" ")  # exibe o valor do nó atual
-            self._percorrer_em_ordem_recursivo(atual.direita)  # visita direita
+            self.percorrer_recursivo(atual.direita)  # visita direita
 
     # método para remover um valor da árvore
     def remover(self, valor):
-        self.raiz = self._remover_recursivo(self.raiz, valor)
+        self.raiz = self.remover_recursivo(self.raiz, valor)
 
-    def _remover_recursivo(self, atual, valor):
+    def remover_recursivo(self, atual, valor):
         if atual is None:  # valor não encontrado
             return None
         if valor < atual.valor:  # busca na subárvore esquerda
-            atual.esquerda = self._remover_recursivo(atual.esquerda, valor)
+            atual.esquerda = self.remover_recursivo(atual.esquerda, valor)
         elif valor > atual.valor:  # busca na subárvore direita
-            atual.direita = self._remover_recursivo(atual.direita, valor)
+            atual.direita = self.remover_recursivo(atual.direita, valor)
         else:  # valor encontrado
             if atual.esquerda is None:  # sem filho à esquerda
                 return atual.direita
@@ -56,7 +56,7 @@ class ArvoreBinaria:
             # nó com dois filhos: substitui pelo menor valor da direita
             sucessor = self._encontrar_min(atual.direita)
             atual.valor = sucessor.valor  # copia o valor do sucessor
-            atual.direita = self._remover_recursivo(atual.direita, sucessor.valor)
+            atual.direita = self.remover_recursivo(atual.direita, sucessor.valor)
         return atual
 
     def _encontrar_min(self, atual):
