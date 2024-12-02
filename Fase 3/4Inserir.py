@@ -12,7 +12,7 @@ class ArvoreBinaria:
         if self.raiz is None:  # se a árvore está vazia
             self.raiz = No(valor)  # o primeiro valor vira a raiz
         else:
-            self.inserir_recursivo(self.raiz, valor)  # chama a função auxiliar
+            self.inserir_recursivo(self.raiz, valor)  # aqui ela desce pela árvore até achar uma posição vazia, seguindo a regra de se for menor -> à esquerda // maior -> à direita
 
     def inserir_recursivo(self, atual, valor):
         if valor < atual.valor:  # vai para a esquerda se for menor
