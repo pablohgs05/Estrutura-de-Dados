@@ -16,3 +16,7 @@ Remover: Remove um nó específico, mantendo a propriedade da árvore.
 
 Propriedade de Árvores de Busca Binária (BST):
 Para cada nó, todos os valores menores ficam à esquerda e todos os valores maiores ficam à direita.
+
+Árvore comum: Sem limite de filhos e sem ordem.
+Árvore binária: Máximo 2 filhos, mas sem regra para os valores.
+ABB: Árvore binária com valores ordenados (menores à esquerda, maiores à direita).
