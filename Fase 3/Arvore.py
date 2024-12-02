@@ -1,81 +1,71 @@
 class No:
-    # representa um nó da árvore
     def __init__(self, valor):
-        self.valor = valor  # armazena o valor do nó
-        self.esquerda = None  # referência para o filho à esquerda
-        self.direita = None  # referência para o filho à direita
+        self.valor = valor  # guarda o valor do nó
+        self.esquerda = None  # referência ao filho à esquerda
+        self.direita = None  # referência ao filho à direita
 
 
-class ArvoreBinariaBusca:
-    # representa uma árvore de busca
+class ArvoreBinaria:
     def __init__(self):
-        self.raiz = None  # inicializa a árvore sem nenhum nó
+        self.raiz = None  # árvore começa vazia
 
     def inserir(self, valor):
-        # insere um valor na árvore
-        if self.raiz is None:
-            self.raiz = No(valor)  # define a raiz se a árvore estiver vazia
+        if self.raiz is None:  # se a árvore está vazia
+            self.raiz = No(valor)  # o valor vira a raiz
         else:
-            self._inserir_recursivo(self.raiz, valor)
+            self.inserir_recursivo(self.raiz, valor)  # chama método auxiliar
 
-    def _inserir_recursivo(self, atual, valor):
-        # insere recursivamente no local correto
-        if valor < atual.valor:  # vai para a esquerda se menor
+    def inserir_recursivo(self, atual, valor):
+        if valor < atual.valor:  # vai para a esquerda se for menor
             if atual.esquerda is None:
-                atual.esquerda = No(valor)
+                atual.esquerda = No(valor)  # insere o valor à esquerda
             else:
-                self._inserir_recursivo(atual.esquerda, valor)
-        elif valor > atual.valor:  # vai para a direita se maior
+                self.inserir_recursivo(atual.esquerda, valor)  # continua descendo
+        elif valor > atual.valor:  # vai para a direita se for maior
             if atual.direita is None:
-                atual.direita = No(valor)
+                atual.direita = No(valor)  # insere o valor à direita
             else:
-                self._inserir_recursivo(atual.direita, valor)
+                self.inserir_recursivo(atual.direita, valor)  # continua descendo
 
-    def em_ordem(self):
-        # percorre a árvore em ordem crescente
-        self._em_ordem_recursivo(self.raiz)
+    # método para percorrer a árvore em ordem (menor para maior)
+    def percorrer_em_ordem(self):
+        self._percorrer_em_ordem_recursivo(self.raiz)
 
-    def _em_ordem_recursivo(self, atual):
-        # função auxiliar para percorrer em ordem
-        if atual is not None:
-            self._em_ordem_recursivo(atual.esquerda)  # percorre à esquerda
-            print(atual.valor, end=" ")  # imprime o valor do nó atual
-            self._em_ordem_recursivo(atual.direita)  # percorre à direita
+    def _percorrer_em_ordem_recursivo(self, atual):
+        if atual is not None:  # verifica se o nó existe
+            self._percorrer_em_ordem_recursivo(atual.esquerda)  # visita esquerda
+            print(atual.valor, end=" ")  # exibe o valor do nó atual
+            self._percorrer_em_ordem_recursivo(atual.direita)  # visita direita
 
+    # método para remover um valor da árvore
     def remover(self, valor):
-        # remove um nó da árvore
         self.raiz = self._remover_recursivo(self.raiz, valor)
 
     def _remover_recursivo(self, atual, valor):
-        # função auxiliar para remoção recursiva
-        if atual is None:
-            return None  # retorna se o nó não for encontrado
+        if atual is None:  # valor não encontrado
+            return None
         if valor < atual.valor:  # busca na subárvore esquerda
             atual.esquerda = self._remover_recursivo(atual.esquerda, valor)
         elif valor > atual.valor:  # busca na subárvore direita
             atual.direita = self._remover_recursivo(atual.direita, valor)
-        else:
-            # caso o nó tenha um filho ou nenhum
-            if atual.esquerda is None:
+        else:  # valor encontrado
+            if atual.esquerda is None:  # sem filho à esquerda
                 return atual.direita
-            if atual.direita is None:
+            if atual.direita is None:  # sem filho à direita
                 return atual.esquerda
-            # caso tenha dois filhos, encontra o menor na subárvore direita
+            # nó com dois filhos: substitui pelo menor valor da direita
             sucessor = self._encontrar_min(atual.direita)
-            atual.valor = sucessor.valor  # substitui pelo sucessor
+            atual.valor = sucessor.valor  # copia o valor do sucessor
             atual.direita = self._remover_recursivo(atual.direita, sucessor.valor)
         return atual
 
     def _encontrar_min(self, atual):
-        # encontra o menor valor em uma subárvore
-        while atual.esquerda is not None:
+        while atual.esquerda is not None:  # encontra o menor valor
             atual = atual.esquerda
         return atual
 
-
-arvore = ArvoreBinariaBusca()
-
-# inserindo valores
+# teste
+arvore = ArvoreBinaria()
 arvore.inserir(50)
 arvore.inserir(30)
 arvore.inserir(70)
@@ -84,17 +74,12 @@ arvore.inserir(40)
 arvore.inserir(60)
 arvore.inserir(80)
 
-# percorrendo em ordem
-print("\nárvore em ordem:")
-arvore.em_ordem()
-print()
-
+# percorrendo
+print("\nPercurso em ordem:")
+arvore.percorrer_em_ordem()
 # removendo
-print("\nremovendo o valor 50:")
 arvore.remover(50)
-
-# percorrendo em ordem novamente
-print("\nárvore após a remoção:")
-arvore.em_ordem()
-print()
+# percorrendo dnv
+print("\nApós remover 50:")
+arvore.percorrer_em_ordem()
 print("\n")
